@@ -1,0 +1,28 @@
+.navbar-wrapper{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: #212121;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-name{
+    margin-left: 10px;
+}
+.nav-icon{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: large;
+}
+.nav-icon > div > a > i{
+    font-size: 30px;
+    margin: 15px 15px;
+}
+a{
+    text-decoration: none;
+    color: #FFFFFF;
+}
