@@ -5,10 +5,11 @@ function loadProducts() {
     fetch("./products.json")
     .then(function(response) {
         return response.json();
+        
     })
     .then(function(products) {
         listOfProducts = products;
-        addProductsToWebpage();
+        for(var i = 0; i <listOfProducts.lenght;i++) {addProductsToWebpage(i)}
     });
 }
 
@@ -19,13 +20,49 @@ function initSite() {
 }
 
 /** Uses the loaded products data to create a visible product list on the website */
-function addProductsToWebpage() {
+function addProductsToWebpage(i) {
+/*     let main=document.getElementById("main") */
+    let body=document.body
+    /* Main container */
+    let mainContainer=document.createElement("div")
+    mainContainer.classList.add("mainContainer")
+    /* Create title div */
+    let titleDiv=document.createElement("div")
+    titleDiv.classList.add("titleDiv")
+    let phoneName=document.createElement("h1")
+    phoneName.innerText=listOfProducts[i].title
+    let phoneInfo=document.createElement("h4")
+    phoneInfo.innerText=listOfProducts[i].description
+    /* Create photo div */
+    let photo=document.createElement("img")
+    photo.classList.add("photo")
+    photo.src =listOfProducts[i].image
+    /* Create price div */
+    let priceDiv=document.createElement("div")
+    priceDiv.classList.add("price")
+    let price=document.createElement("h3")
+    price.innerText=listOfProducts[i].price
+    /* Create button */
+    let button=document.createElement("button")
+    button.innerText="Lägg till i kundvagnen"
+    /* Lägg till append child */
+/*     main.appendChild(mainContainer) */
+    body.appendChild(mainContainer)
+    mainContainer.appendChild(titleDiv)
+    mainContainer.appendChild(photo)
+    mainContainer.appendChild(priceDiv)
+    titleDiv.appendChild(phoneName, phoneInfo)
+    priceDiv.appendChild(price, button)
+
+
+
     // Check your console to see that the products are stored in the listOfProducts varible.
-    console.log(listOfProducts);
+
+    }
+ 
 
     // Add your code here, remember to brake your code in to smaller function blocks
     // to reduce complexity and increase readability. Each function should have
     // an explainetory comment like the one for this function, see row 22.
     
     // TODO: Remove the console.log and these comments when you've read them.
-}

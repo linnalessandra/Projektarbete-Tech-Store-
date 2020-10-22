@@ -1,3 +1,9 @@
+body {
+    width: 100%;
+    height: 2200px;
+    
+}
+
 .navbar-wrapper{
     position: fixed;
     top: 0;
@@ -25,4 +31,25 @@
 a{
     text-decoration: none;
     color: #FFFFFF;
+}
+
+.mainContainer {
+display: flex;
+flex-direction: column;
+justify-content: center;
+margin: auto;
+height: 100vh;
+
+}
+
+.titleDiv {
+flex: 1 0 0px;
+}
+
+.photo {
+flex: 2 0 0px;
+}
+
+.price {
+flex: 1 0 0px;
 }
