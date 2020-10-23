@@ -42,7 +42,7 @@ function addProductsToWebpage(i) {
     let priceDiv=document.createElement("div")
     priceDiv.classList.add("price")
     let price=document.createElement("h3")
-    price.innerText=listOfProducts[i].price
+    price.innerText=listOfProducts[i].price + " Kr"
     /* Create button */
     let button=document.createElement("button")
     button.innerText="Lägg till i kundvagnen"
