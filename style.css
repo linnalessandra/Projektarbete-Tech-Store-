@@ -1,7 +1,9 @@
+*{
+    box-sizing: border-box;
+}
+
 body {
-    width: 100%;
-    height: 2200px;
-    
+margin: 0px;    
 }
 
 .navbar-wrapper{
@@ -14,6 +16,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 50px;
 }
 .nav-name{
     margin-left: 10px;
@@ -37,19 +40,32 @@ a{
 display: flex;
 flex-direction: column;
 justify-content: center;
-margin: auto;
-height: 100vh;
+margin: 30px auto;
+width: 400px;
+
 
 }
 
 .titleDiv {
 flex: 1 0 0px;
+margin-top: 30px;
+text-align: center;
 }
 
 .photo {
-flex: 2 0 0px;
+    flex: 2 0 0px;
+    padding: 5px;
 }
 
 .price {
-flex: 1 0 0px;
+    flex: 1 0 0px;
+    text-align: center;
+    margin: 30px 30px;
+}
+
+img {
+    width: 100%;
+    height: inherit;
+    object-fit: cover;
+
 }

@@ -9,7 +9,7 @@ function loadProducts() {
     })
     .then(function(products) {
         listOfProducts = products;
-        for(var i = 0; i <listOfProducts.lenght;i++) {addProductsToWebpage(i)}
+        for(var i = 0; i <listOfProducts.length;i++) {addProductsToWebpage(i)}
     });
 }
 
@@ -34,9 +34,10 @@ function addProductsToWebpage(i) {
     let phoneInfo=document.createElement("h4")
     phoneInfo.innerText=listOfProducts[i].description
     /* Create photo div */
+    let photoDiv=document.createElement("div")
     let photo=document.createElement("img")
-    photo.classList.add("photo")
-    photo.src =listOfProducts[i].image
+    photoDiv.classList.add("photo")
+    photo.src ="assets/"+ listOfProducts[i].image
     /* Create price div */
     let priceDiv=document.createElement("div")
     priceDiv.classList.add("price")
@@ -49,11 +50,13 @@ function addProductsToWebpage(i) {
 /*     main.appendChild(mainContainer) */
     body.appendChild(mainContainer)
     mainContainer.appendChild(titleDiv)
-    mainContainer.appendChild(photo)
+    mainContainer.appendChild(photoDiv)
     mainContainer.appendChild(priceDiv)
-    titleDiv.appendChild(phoneName, phoneInfo)
-    priceDiv.appendChild(price, button)
-
+    titleDiv.appendChild(phoneName)
+    titleDiv.appendChild(phoneInfo)
+    priceDiv.appendChild(price)
+    priceDiv.appendChild(button)
+    photoDiv.appendChild(photo)
 
 
     // Check your console to see that the products are stored in the listOfProducts varible.
