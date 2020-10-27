@@ -72,3 +72,23 @@ img {
     object-fit: contain;
 
 }
+.buttonDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #5596f5;
+    border-radius: 15px;
+    align-items: center;
+    color: #FFFFFF;
+    width: 250px;
+    margin: auto;
+    
+}
+button{
+    background-color: #5596f5;
+    border-radius: 15px;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    color: #FFFFFF;
+}

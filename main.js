@@ -40,8 +40,14 @@ function addProductsToWebpage(i) {
     let price=document.createElement("h3")
     price.innerText=listOfProducts[i].price + " Kr"
     /* Create button */
+    let buttonDiv = document.createElement("div")
+    buttonDiv.classList.add("buttonDiv")
     let button=document.createElement("button")
     button.innerText="Lägg till i kundvagnen"
+    /* cart-icon in button */
+    let cartIcon = document.createElement("i")
+    cartIcon.classList.add("fas")
+    cartIcon.classList.add("fa-cart-arrow-down")
     /* Lägg till append child */
 /*     main.appendChild(mainContainer) */
     body.appendChild(mainContainer)
@@ -51,7 +57,9 @@ function addProductsToWebpage(i) {
     titleDiv.appendChild(phoneName)
     titleDiv.appendChild(phoneInfo)
     priceDiv.appendChild(price)
-    priceDiv.appendChild(button)
+    priceDiv.appendChild(buttonDiv)
+    buttonDiv.appendChild(cartIcon)
+    buttonDiv.appendChild(button)
     photoDiv.appendChild(photo)
     //function that puts a clicked on product in cart
     button.addEventListener("click", function(){
