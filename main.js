@@ -42,8 +42,9 @@ function addProductsToWebpage(i) {
     /* Create button */
     let buttonDiv = document.createElement("div")
     buttonDiv.classList.add("buttonDiv")
-    let button=document.createElement("button")
+    let button=document.createElement("h5")
     button.innerText="Lägg till i kundvagnen"
+    button.classList.add("buttonText")
     /* cart-icon in button */
     let cartIcon = document.createElement("i")
     cartIcon.classList.add("fas")
@@ -62,7 +63,7 @@ function addProductsToWebpage(i) {
     buttonDiv.appendChild(button)
     photoDiv.appendChild(photo)
     //function that puts a clicked on product in cart
-    button.addEventListener("click", function(){
+    buttonDiv.addEventListener("click", function(){
         let cart = {
             title: listOfProducts[i].title,
             description: listOfProducts[i].description,

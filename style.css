@@ -82,13 +82,14 @@ img {
     color: #FFFFFF;
     width: 250px;
     margin: auto;
+    cursor: pointer;
     
 }
-button{
+.buttonText{
     background-color: #5596f5;
     border-radius: 15px;
     border: none;
     padding: 15px;
-    cursor: pointer;
     color: #FFFFFF;
+    margin: 0px 5px;
 }
