@@ -93,3 +93,16 @@ img {
     color: #FFFFFF;
     margin: 0px 5px;
 }
+@media screen and (max-width: 420px){
+    .mainContainer{
+        width: 100%;
+        margin: 50px auto;
+    }
+    .titleDiv{
+        height: 100px;
+        margin: 10px auto;
+    }
+    .photo{
+        height: 280px;
+    }
+}

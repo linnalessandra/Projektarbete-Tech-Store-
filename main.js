@@ -76,7 +76,7 @@ function addProductsToWebpage(i) {
         }
         currentShoppingCart.push(cart)
         localStorage.setItem("shoppingcart", JSON.stringify(currentShoppingCart))
-        location.reload()
+        clickCounter()
     })   
 }
     //function that counts products in cart
