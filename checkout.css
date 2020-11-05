@@ -3,8 +3,9 @@
 }
 
 body {
-    margin: 0px;
+    margin-top: 30px;
     padding: 0px;
+    text-align: center;
 }
 
 .navbar-wrapper {
@@ -125,4 +126,10 @@ img {
     margin-top: 50px;
 }
 
+.icon{
+    font-size: 30px;
+}
 
+h2{
+    margin-top: 100px;
+}
