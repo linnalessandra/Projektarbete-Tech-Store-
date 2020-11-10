@@ -6,14 +6,22 @@ console.log(currentShoppingcart)
 function initSite () {
     clickCounter()
     updateCartTotal()
-    for (let i = 0; i < currentShoppingcart.length; i++) {
-        if(currentShoppingcart !=null){ 
-            loadProducts(i)
-    
+
+    if(currentShoppingcart.length == 0){
+        emptyCheckout()
+    }else{
+        for (let i = 0; i < currentShoppingcart.length; i++) {
+            if(currentShoppingcart != null){ 
+                loadProducts(i)
+                    
+            }
+                
         }
-        
     }
+
+
 }
+
 
 function loadProducts (i) {
     let main=document.getElementById("main")
@@ -25,7 +33,7 @@ function loadProducts (i) {
     titleDiv.classList.add("titleDiv")
     let phoneName=document.createElement("h1")
     phoneName.innerText=currentShoppingcart[i].title
-    let phoneInfo=document.createElement("h4")
+    /*let phoneInfo=document.createElement("h4")
     phoneInfo.innerText=currentShoppingcart[i].description
     /* Create photo div */
     let photoDiv=document.createElement("div")
@@ -47,7 +55,11 @@ function loadProducts (i) {
     let cartIcon = document.createElement("i")
     cartIcon.classList.add("far")
     cartIcon.classList.add("fa-trash-alt")
-    /*let chechoutPriceDiv = document.createElement(div)
+    
+
+    /* shows button "SLUTFÖR DITT KÖP" */
+    let confirmButton = document.getElementById("confirmButton")
+    confirmButton.style.display = "block"
 
     /* Lägg till append child */
 /*     main.appendChild(mainContainer) */
@@ -57,7 +69,7 @@ function loadProducts (i) {
     mainContainer.appendChild(priceDiv)
     mainContainer.appendChild(buttonDiv)
     titleDiv.appendChild(phoneName)
-    titleDiv.appendChild(phoneInfo)
+    //titleDiv.appendChild(phoneInfo)
     priceDiv.appendChild(price)
     priceDiv.appendChild(buttonDiv)
     buttonDiv.appendChild(cartIcon)
@@ -103,7 +115,39 @@ for (let i = 0; i < currentShoppingcart.length; i++) {
 }
 }
 
-
+/* alert köp slutfört */
+function confirmOrder(){
+    for (let i = 0; i < currentShoppingcart.length; i++) {
+        currentShoppingcart.splice(i, currentShoppingcart.length)
+        localStorage.setItem("shoppingcart", JSON.stringify(currentShoppingcart))
+        
+    }
+    /* empty checkout-page  */
+    let main = document.getElementById("main")
+    main.innerHTML = ""
+    let div = document.getElementById("totalPrice")
+    div.innerHTML = ""
+    let counter = document.getElementById("productsInCart")
+    counter.innerHTML = 0
+    alert("Köp slutfört")
+    emptyCheckout()
+    
+}
+/* when empty write out "Din kundvagn är tom!" */
+function emptyCheckout(){
+    
+    let confirmButton = document.getElementById("confirmButton")
+    confirmButton.style.display = "none"
+    
+    let main = document.getElementById("main")
+    
+    let nothingInCart = document.createElement("div")
+    nothingInCart.classList.add("nothingInCart")
+    nothingInCart.innerHTML = "Din kundvagn är tom!"
+    main.appendChild(nothingInCart)
+   
+    
+}
 
 
 
