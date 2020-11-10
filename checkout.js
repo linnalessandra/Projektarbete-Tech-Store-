@@ -25,7 +25,7 @@ function loadProducts (i) {
     titleDiv.classList.add("titleDiv")
     let phoneName=document.createElement("h1")
     phoneName.innerText=currentShoppingcart[i].title
-    let phoneInfo=document.createElement("h4")
+    /*let phoneInfo=document.createElement("h4")
     phoneInfo.innerText=currentShoppingcart[i].description
     /* Create photo div */
     let photoDiv=document.createElement("div")
@@ -57,7 +57,7 @@ function loadProducts (i) {
     mainContainer.appendChild(priceDiv)
     mainContainer.appendChild(buttonDiv)
     titleDiv.appendChild(phoneName)
-    titleDiv.appendChild(phoneInfo)
+    //titleDiv.appendChild(phoneInfo)
     priceDiv.appendChild(price)
     priceDiv.appendChild(buttonDiv)
     buttonDiv.appendChild(cartIcon)
