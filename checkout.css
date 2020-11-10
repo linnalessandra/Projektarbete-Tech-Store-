@@ -111,7 +111,10 @@ img {
 }
 .priceWrap {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    
 }
 #totalPrice {
     margin: 20px auto;
