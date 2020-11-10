@@ -5,8 +5,9 @@
 body {
     margin: 0px;
     padding: 0px;
+    margin-top: 30px;
+    text-align: center;
 }
-
 .navbar-wrapper {
     position: fixed;
     top: 0;
@@ -32,13 +33,10 @@ body {
     font-size: 30px;
     margin: 15px 15px;
 }
-
 a{
     text-decoration: none;
     color: #FFFFFF;
 }
-
-
 .mainContainer {
     display: flex;
     flex-direction: column;
@@ -50,43 +48,49 @@ a{
     padding: 5px;
     border: 3px solid #5596f5;
     border-radius: 10px;
-    background-color: #F5F5F5
- 
+    background-color: #F5F5F5; 
 }
-
 .titleDiv {
     flex: 1 0 0px;
     margin-top: -10px;
     text-align: center;
     max-width: 150px;
     font-size: 15px;
-
 }
-
 .photo {
     flex: 2 0 0px;
     padding: 5px;
     height: 200px;
     max-width: 150px;
 }
-
+.titleDiv {
+    flex: 1 0 0px;
+    margin-top: -10px;
+    text-align: center;
+    max-width: 150px;
+    font-size: 15px;
+}
+.photo {
+    flex: 2 0 0px;
+    padding: 5px;
+    height: 200px;
+    max-width: 150px;
+}
 .price {
     flex: 1 0 0px;
     text-align: center;
     max-width: 200px;
     margin-top: -20px;
 }
-
 img {
     width: 100%;
     height: inherit;
     object-fit: contain;
     max-width: 150px;
 }
-
 .buttonDiv {
     display: flex;
-    flex: 1 0 0 px;
+    flex: 1 0 0px;
     flex-direction: row;
     justify-content: center;
     background-color: #E64E4E;
@@ -98,7 +102,6 @@ img {
     cursor: pointer;
     padding: 15px;
 }
-
 .buttonText {
     background-color: #E64E4E;
     border-radius: 15px;
@@ -106,7 +109,6 @@ img {
     color: #FFFFFF;
     margin: 0px 5px;
 }
-
 .priceWrap {
     display: flex;
     justify-content: center;
@@ -115,10 +117,7 @@ img {
     margin: 20px auto;
     font-weight: 600;
     font-size: 20px;
-
-
 }
-
 #main {
     display: flex;
     flex-direction: row;
@@ -126,5 +125,25 @@ img {
     justify-content: center;
     margin-top: 50px;
 }
-
-
+#confirmButton{
+    padding: 15px;
+    font-size: 25px;
+    background-color: #5596f5;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    display: none;
+}
+.checkIcon{
+    margin-right: 10px;
+}
+.nothingInCart{
+    margin: 300px auto;
+    font-size: 40px;
+}
+.icon{
+    font-size: 30px;
+}
+h2{
+    margin-top: 100px;
+}
