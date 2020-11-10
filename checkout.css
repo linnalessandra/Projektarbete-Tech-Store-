@@ -37,7 +37,6 @@ a{
     text-decoration: none;
     color: #FFFFFF;
 }
-
 .mainContainer {
     display: flex;
     flex-direction: column;
@@ -47,9 +46,9 @@ a{
     margin-right: 15px;
     margin-left: 15px;
     padding: 5px;
-    border: 3px solid #5596f5; 
+    border: 3px solid #5596f5;
     border-radius: 10px;
-    background-color: #F5F5F5 
+    background-color: #F5F5F5; 
 }
 .titleDiv {
     flex: 1 0 0px;
@@ -66,15 +65,16 @@ a{
 }
 .titleDiv {
     flex: 1 0 0px;
-    margin-top: 10px;
+    margin-top: -10px;
     text-align: center;
-    max-width: 200px;
+    max-width: 150px;
+    font-size: 15px;
 }
 .photo {
     flex: 2 0 0px;
     padding: 5px;
-    height: 420px;
-    max-width: 200px;
+    height: 200px;
+    max-width: 150px;
 }
 .price {
     flex: 1 0 0px;
@@ -90,7 +90,7 @@ img {
 }
 .buttonDiv {
     display: flex;
-    flex: 1 0 0 px;
+    flex: 1 0 0px;
     flex-direction: row;
     justify-content: center;
     background-color: #E64E4E;
@@ -111,9 +111,7 @@ img {
 }
 .priceWrap {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 #totalPrice {
     margin: 20px auto;
