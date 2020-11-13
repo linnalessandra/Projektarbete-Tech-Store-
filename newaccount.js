@@ -1,3 +1,31 @@
+
+/* skapar konto */
+let loginBtn = document.getElementById("loginBtn")
+loginBtn.addEventListener("click", createAccount)
+function createAccount(){
+    let allAccounts = JSON.parse(localStorage.getItem("customers"))
+    if(allAccounts == null){
+        allAccounts = []
+    }
+    let inputUsername = document.getElementById("inputusername").value
+    let inputPassword = document.getElementById("inputpassword").value
+    let account = {
+        "username": inputUsername,
+        "password": inputPassword
+    }
+    allAccounts.push(account)
+    localStorage.setItem("customers", JSON.stringify(allAccounts))
+    alert("you succesfully created an account")
+    location.replace("/login.html")
+}
+
+function initSite(){
+    loadProducts()
+}
+
+
+
+
 var listOfProducts;
 
 /** Get products from the json file and store it in a gobal variable */
@@ -11,13 +39,7 @@ function loadProducts() {
         for(var i = 0; i <listOfProducts.length;i++) {addProductsToWebpage(i)}
     });
 }
-/* starts when siteloads */
-function initSite() {
-    loadProducts();
-    clickCounter()
-    checkIfLoggedIn()
-}
-/** Uses the loaded products data to create a visible product list on the website */
+
 function addProductsToWebpage(i) {
     let body=document.body
     /* Main container */
@@ -80,76 +102,3 @@ function addProductsToWebpage(i) {
         clickCounter()
     })   
 }
-    //function that counts products in cart
-    function clickCounter(){
-        let countProducts = JSON.parse(localStorage.getItem("shoppingcart"))
-        let productsInCart = document.getElementById("productsInCart")
-        let clicks = 0
-        if(countProducts != null){
-            clicks = countProducts.length
-            productsInCart.innerHTML = clicks
-        } else if(countProducts == 0){
-            productsInCart.innerHTML = clicks
-        }
-    }
-
-
-
-function checkIfLoggedIn(){
-    let loggedin = JSON.parse(localStorage.getItem("loggedin"))
-    console.log("hej")
-    if(loggedin != null){
-        let navDiv = document.getElementById("nav-icon")
-        
-        let mainDiv = document.getElementById("wrapperIcon")
-
-        let linkLogin = document.getElementById("linklogin")
-        linkLogin.style.display = "none"
-
-        let loggedInUser = document.createElement("h4")
-        loggedInUser.innerText = "Inloggad som " + loggedin.username
-        loggedInUser.style.margin = "10px"
-
-        let orderHistory = document.createElement("button")
-        orderHistory.innerText = "Recent orders"
-        orderHistory.style.border = "none"
-        orderHistory.style.backgroundColor = "#212121"
-        orderHistory.style.color = "#FFFFFF"
-        orderHistory.style.cursor = "pointer"
-
-        orderHistory.addEventListener("click", showOrderHistory)
-
-
-        let logoutBtn = document.createElement("button")
-        logoutBtn.innerText = "LogOut"
-        logoutBtn.style.marginRight = "5px"
-        logoutBtn.style.backgroundColor = "#212121"
-        logoutBtn.style.color = "#FFFFFF"
-        logoutBtn.style.border = "1px solid #FFFFFF"
-        logoutBtn.style.cursor = "pointer"
-
-        logoutBtn.addEventListener("click", ()=>{
-            localStorage.removeItem("loggedin")
-            location.replace("/index.html")
-        })
-
-        mainDiv.appendChild(logoutBtn)
-        navDiv.append(loggedInUser, orderHistory)
-        
-    }
-    
-}
-
-
-/* Skriv ut orderhistorik i main */
-function showOrderHistory(){
-    let history = JSON.parse(localStorage.getItem("receipt"))
-    console.log(history)
-}
-
-
-    // Add your code here, remember to brake your code in to smaller function blocks
-    // to reduce complexity and increase readability. Each function should have
-    // an explainetory comment like the one for this function, see row 22.
-    
-    // TODO: Remove the console.log and these comments when you've read them.

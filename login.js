@@ -1,27 +1,7 @@
-let createAccountBtn = document.getElementById("join")
-createAccountBtn.addEventListener("click", createAccount)
-
-let loginBtn = document.getElementById("login")
+/* hämtar login-knappen */
+let loginBtn = document.getElementById("loginBtn")
 loginBtn.addEventListener("click", login)
-
-function createAccount(){
-    let allAccounts = JSON.parse(localStorage.getItem("customers"))
-    if(allAccounts == null){
-        allAccounts = []
-    }
-    let inputUsername = document.getElementById("inputusername").value
-    let inputPassword = document.getElementById("inputpassword").value
-    let account = {
-        "username": inputUsername,
-        "password": inputPassword
-    }
-    allAccounts.push(account)
-    localStorage.setItem("customers", JSON.stringify(allAccounts))
-    alert("you succesfully created an account")
-    /* skicka till login här */
-}
-
-
+/* kollar om användare finns */
 function login(){
     let inputUsername = document.getElementById("inputusername").value
     let inputPassword = document.getElementById("inputpassword").value
@@ -32,10 +12,20 @@ function login(){
         
         if(inputUsername == customer.username && inputPassword == customer.password){
             alert("you are logged in")
-        }else{
-            alert("wrong username or password")
+            let loggedin = {
+                "username": customer.username,
+                "password": customer.password
+            }
+            localStorage.setItem("loggedin", JSON.stringify(loggedin))
+            location.replace("/index.html")
+            break
         }
         
     }
+    
+}
+
+
+function initSite(){
     
 }

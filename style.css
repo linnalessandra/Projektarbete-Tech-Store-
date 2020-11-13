@@ -41,7 +41,14 @@ a{
     text-decoration: none;
     color: #FFFFFF;
 }
-
+#nav-icon{
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
 .mainContainer {
 display: flex;
 flex-direction: column;
