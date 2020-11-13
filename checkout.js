@@ -118,6 +118,9 @@ for (let i = 0; i < currentShoppingcart.length; i++) {
 /* alert köp slutfört */
 function confirmOrder(){
     for (let i = 0; i < currentShoppingcart.length; i++) {
+        /* saves receipt */
+        localStorage.setItem("receipt", JSON.stringify(currentShoppingcart))
+        /* empties cart with splice */
         currentShoppingcart.splice(i, currentShoppingcart.length)
         localStorage.setItem("shoppingcart", JSON.stringify(currentShoppingcart))
         
@@ -145,7 +148,10 @@ function emptyCheckout(){
     nothingInCart.classList.add("nothingInCart")
     nothingInCart.innerHTML = "Din kundvagn är tom!"
     main.appendChild(nothingInCart)
-   
+   /* collects receipt from local storage */
+    let receipt = localStorage.getItem("receipt")
+    JSON.parse(receipt)
+    console.log(receipt)
     
 }
 
