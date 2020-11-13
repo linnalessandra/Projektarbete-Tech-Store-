@@ -1,0 +1,59 @@
+*{
+    box-sizing: border-box;
+}
+
+.newaccount{
+    text-align: end;
+    display: flex;
+}
+
+#loginBtn{
+    height: 21px;
+}
+
+.move{
+    display: flex;
+    flex-direction: column;
+}
+ 
+header{
+    display: flex;
+    align-items: center;
+
+    position:fixed;
+    background-color: #212121;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: white;
+
+    height: 81px;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.nav-name{
+    margin-left: 10px;
+}
+
+a{
+    text-decoration: none;
+    color: #FFFFFF;
+    margin-left: -2px;
+}
+
+.headerBox{
+    flex: 1 0 0px;
+}
+
+.loginBox{
+    flex: 1 0 0px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+input{
+    height: 21px;
+}
+
+
