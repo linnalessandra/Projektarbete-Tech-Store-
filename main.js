@@ -143,8 +143,63 @@ function checkIfLoggedIn(){
 
 /* Skriv ut orderhistorik i main */
 function showOrderHistory(){
+    console.log("rätt funktion")
+    let products = document.getElementsByClassName("mainContainer")
+    for (let i = 0; i < products.length; i++) {
+        products[i].style.display = "none"
+        
+    }
+
     let history = JSON.parse(localStorage.getItem("receipt"))
+    if(history == null){
+        let main = document.getElementById("main")
+        main.style.textAlign = "center"
+        
+        let noRecentOrders = document.createElement("h3")
+        noRecentOrders.innerText = "du har inga tidigare ordrar!"
+        noRecentOrders.style.margin = "400px auto"
+        
+
+        main.appendChild(noRecentOrders)
+    }
+    /* products.style.display = "none" */
     console.log(history)
+    for (let i = 0; i < history.length; i++) {
+        const previousOrder = history[i];
+
+        let main = document.getElementById("main")
+        main.style.textAlign = "center"
+        main.style.margin = "200px auto"
+        main.style.width = "100%"
+        main.style.display = "flex"
+        main.style.flexDirection = "column"
+        main.style.justifyContent = "center"
+        main.style.alignItems = "center"
+       
+
+        let mainContainer = document.createElement("div")
+        mainContainer.style.width = "50%"
+        mainContainer.style.display = "flex"
+        mainContainer.style.flexDirection = "column"
+        mainContainer.style.justifyContent = "center"
+        mainContainer.style.alignItems = "center"
+        mainContainer.style.border = "1px solid black"
+        mainContainer.style.border = "1px solid black"
+
+        let shoppingDate = document.createElement("h2")
+        shoppingDate.innerText = "Kvitto:"
+
+        let productName = document.createElement("h3")
+        productName.innerText = previousOrder.title
+
+        let price = document.createElement("h4")
+        price.innerText = previousOrder.price
+
+        main.appendChild(mainContainer)
+        mainContainer.append(shoppingDate, productName, price)
+
+        
+    }
 }
 
 

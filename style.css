@@ -118,4 +118,9 @@ img {
     .photo{
         height: 280px;
     }
+    /* navbaren */
+    
+    #linklogin{
+        display: none;
+    }
 }

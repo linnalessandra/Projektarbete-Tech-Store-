@@ -134,6 +134,7 @@ function confirmOrder(){
     counter.innerHTML = 0
     alert("Köp slutfört")
     emptyCheckout()
+    location.replace("/index.html")
     
 }
 /* when empty write out "Din kundvagn är tom!" */
