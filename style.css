@@ -26,14 +26,14 @@ a{
 .nav-name{
     margin-left: 10px;
 }
-.nav-icon{
+#wrapperIcon{
     display: flex;
     flex-direction: row;
     align-items: center;
     font-size: large;
     
 }
-.nav-icon > div > a > i{
+#wrapperIcon > div > a > i{
     font-size: 30px;
     margin: 15px 15px;
     margin-left: -20px;
@@ -108,6 +108,11 @@ img {
     color: #FFFFFF;
     margin: 0px 5px;
 }
+@media screen and (max-width: 500px){
+    #nav-icon{
+        display: none;
+    }
+}
 @media screen and (max-width: 420px){
     .mainContainer{
         width: 100%;
@@ -125,21 +130,22 @@ img {
         justify-content: center;
     }
     .nav-name{
-        width: 170px;
-    }
-    #nav-icon{
-        display: none;
+        width: 50%;
+        text-align: center;
     }
     #wrapperIcon{
-        width: 160px;
-        padding: 10px;
+        width: 50%;
+        /* padding: 10px; */
         justify-content: space-evenly;
     }
-    .nav-icon > div > a{
-        margin: auto 0px;
+    #wrapperIcon > button{
+        margin-right: 20px;
+    }
+    a{
+        margin: 0px 15px;
     }
     .nav-name > a{
-        margin: 0px;
+        margin-left: 0px;
     }
     
 }
