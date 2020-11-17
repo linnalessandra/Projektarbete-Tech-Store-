@@ -107,6 +107,7 @@ function checkIfLoggedIn(){
         linkLogin.style.display = "none"
 
         let loggedInUser = document.createElement("h4")
+        loggedInUser.classList.add("username")
         loggedInUser.innerText = "Inloggad som " + loggedin.username
         loggedInUser.style.margin = "10px"
 
