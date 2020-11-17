@@ -31,6 +31,7 @@ a{
     flex-direction: row;
     align-items: center;
     font-size: large;
+    
 }
 .nav-icon > div > a > i{
     font-size: 30px;
@@ -40,8 +41,16 @@ a{
 a{
     text-decoration: none;
     color: #FFFFFF;
-}   
 
+}
+#nav-icon{
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}   
 .mainContainer {
 display: flex;
 flex-direction: column;
@@ -111,4 +120,26 @@ img {
     .photo{
         height: 280px;
     }
+    /* navbaren */
+    .navbar-wrapper{
+        justify-content: center;
+    }
+    .nav-name{
+        width: 170px;
+    }
+    #nav-icon{
+        display: none;
+    }
+    #wrapperIcon{
+        width: 160px;
+        padding: 10px;
+        justify-content: space-evenly;
+    }
+    .nav-icon > div > a{
+        margin: auto 0px;
+    }
+    .nav-name > a{
+        margin: 0px;
+    }
+    
 }

@@ -1,29 +1,30 @@
-/* hämtar login-knappen */
+
+/* skapar konto */
 let loginBtn = document.getElementById("loginBtn")
-loginBtn.addEventListener("click", login)
-/* kollar om användare finns */
-function login(){
+loginBtn.addEventListener("click", createAccount)
+function createAccount(){
+    let allAccounts = JSON.parse(localStorage.getItem("customers"))
+    if(allAccounts == null){
+        allAccounts = []
+    }
     let inputUsername = document.getElementById("inputusername").value
     let inputPassword = document.getElementById("inputpassword").value
-    let allAccounts = JSON.parse(localStorage.getItem("customers"))
-
-    for (let i = 0; i < allAccounts.length; i++) {
-        const customer = allAccounts[i];
-        
-        if(inputUsername == customer.username && inputPassword == customer.password){
-            alert("you are logged in")
-            let loggedin = {
-                "username": customer.username,
-                "password": customer.password
-            }
-            localStorage.setItem("loggedin", JSON.stringify(loggedin))
-            location.replace("/index.html")
-            break
-        }
-        
+    let account = {
+        "username": inputUsername,
+        "password": inputPassword
     }
-    
+    allAccounts.push(account)
+    localStorage.setItem("customers", JSON.stringify(allAccounts))
+    alert("you succesfully created an account")
+    location.replace("/login.html")
 }
+
+function initSite(){
+    loadProducts()
+}
+
+
+
 
 var listOfProducts;
 
@@ -38,9 +39,7 @@ function loadProducts() {
         for(var i = 0; i <listOfProducts.length;i++) {addProductsToWebpage(i)}
     });
 }
-function initSite(){
-    loadProducts()
-}
+
 function addProductsToWebpage(i) {
     let body=document.body
     /* Main container */

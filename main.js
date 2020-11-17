@@ -15,6 +15,7 @@ function loadProducts() {
 function initSite() {
     loadProducts();
     clickCounter()
+    checkIfLoggedIn()
 }
 /** Uses the loaded products data to create a visible product list on the website */
 function addProductsToWebpage(i) {
@@ -91,6 +92,117 @@ function addProductsToWebpage(i) {
             productsInCart.innerHTML = clicks
         }
     }
+
+
+
+function checkIfLoggedIn(){
+    let loggedin = JSON.parse(localStorage.getItem("loggedin"))
+    console.log("hej")
+    if(loggedin != null){
+        let navDiv = document.getElementById("nav-icon")
+        
+        let mainDiv = document.getElementById("wrapperIcon")
+
+        let linkLogin = document.getElementById("linklogin")
+        linkLogin.style.display = "none"
+
+        let loggedInUser = document.createElement("h4")
+        loggedInUser.classList.add("username")
+        loggedInUser.innerText = "Inloggad som " + loggedin.username
+        loggedInUser.style.margin = "10px"
+
+        let orderHistory = document.createElement("button")
+        orderHistory.innerText = "Recent orders"
+        orderHistory.style.border = "none"
+        orderHistory.style.backgroundColor = "#212121"
+        orderHistory.style.color = "#FFFFFF"
+        orderHistory.style.cursor = "pointer"
+
+        orderHistory.addEventListener("click", showOrderHistory)
+
+
+        let logoutBtn = document.createElement("button")
+        logoutBtn.innerText = "LogOut"
+        logoutBtn.style.marginRight = "5px"
+        logoutBtn.style.backgroundColor = "#212121"
+        logoutBtn.style.color = "#FFFFFF"
+        logoutBtn.style.border = "1px solid #FFFFFF"
+        logoutBtn.style.cursor = "pointer"
+
+        logoutBtn.addEventListener("click", ()=>{
+            localStorage.removeItem("loggedin")
+            location.replace("/index.html")
+        })
+
+        mainDiv.appendChild(logoutBtn)
+        navDiv.append(loggedInUser, orderHistory)
+        
+    }
+    
+}
+
+
+/* Skriv ut orderhistorik i main */
+function showOrderHistory(){
+    console.log("rätt funktion")
+    let products = document.getElementsByClassName("mainContainer")
+    for (let i = 0; i < products.length; i++) {
+        products[i].style.display = "none"
+        
+    }
+
+    let history = JSON.parse(localStorage.getItem("receipt"))
+    if(history == null){
+        let main = document.getElementById("main")
+        main.style.textAlign = "center"
+        
+        let noRecentOrders = document.createElement("h3")
+        noRecentOrders.innerText = "du har inga tidigare ordrar!"
+        noRecentOrders.style.margin = "400px auto"
+        
+
+        main.appendChild(noRecentOrders)
+    }
+    /* products.style.display = "none" */
+    console.log(history)
+    for (let i = 0; i < history.length; i++) {
+        const previousOrder = history[i];
+
+        let main = document.getElementById("main")
+        main.style.textAlign = "center"
+        main.style.margin = "200px auto"
+        main.style.width = "100%"
+        main.style.display = "flex"
+        main.style.flexDirection = "column"
+        main.style.justifyContent = "center"
+        main.style.alignItems = "center"
+       
+
+        let mainContainer = document.createElement("div")
+        mainContainer.style.width = "50%"
+        mainContainer.style.display = "flex"
+        mainContainer.style.flexDirection = "column"
+        mainContainer.style.justifyContent = "center"
+        mainContainer.style.alignItems = "center"
+        mainContainer.style.border = "1px solid black"
+        mainContainer.style.border = "1px solid black"
+
+        let shoppingDate = document.createElement("h2")
+        shoppingDate.innerText = "Kvitto:"
+
+        let productName = document.createElement("h3")
+        productName.innerText = previousOrder.title
+
+        let price = document.createElement("h4")
+        price.innerText = previousOrder.price
+
+        main.appendChild(mainContainer)
+        mainContainer.append(shoppingDate, productName, price)
+
+        
+    }
+}
+
 
     // Add your code here, remember to brake your code in to smaller function blocks
     // to reduce complexity and increase readability. Each function should have
