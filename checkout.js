@@ -1,28 +1,20 @@
-var chechoutPage;
-
+/* collects whats in cart */
 var currentShoppingcart=JSON.parse(localStorage.getItem("shoppingcart"))
-console.log(currentShoppingcart)
-
+/* starts these functions when page is loading */
 function initSite () {
     clickCounter()
     updateCartTotal()
-
     if(currentShoppingcart.length == 0){
         emptyCheckout()
     }else{
         for (let i = 0; i < currentShoppingcart.length; i++) {
             if(currentShoppingcart != null){ 
-                loadProducts(i)
-                    
-            }
-                
+                loadProducts(i)                    
+            }               
         }
     }
-
-
 }
-
-
+/* writes out products in cart */
 function loadProducts (i) {
     let main=document.getElementById("main")
     /* Main container */
@@ -55,14 +47,10 @@ function loadProducts (i) {
     let cartIcon = document.createElement("i")
     cartIcon.classList.add("far")
     cartIcon.classList.add("fa-trash-alt")
-    
-
     /* shows button "SLUTFÖR DITT KÖP" */
     let confirmButton = document.getElementById("confirmButton")
     confirmButton.style.display = "block"
-
     /* Lägg till append child */
-/*     main.appendChild(mainContainer) */
     main.appendChild(mainContainer)
     mainContainer.appendChild(photoDiv)
     mainContainer.appendChild(titleDiv)
@@ -76,14 +64,12 @@ function loadProducts (i) {
     buttonDiv.appendChild(button)
     photoDiv.appendChild(photo)
     //function that puts a clicked on product in cart
-
     buttonDiv.addEventListener("click", function(){
       currentShoppingcart.splice(i, 1)
       localStorage.setItem("shoppingcart", JSON.stringify(currentShoppingcart))
       location.reload()
     })   
 }
-
    //function that counts products in cart
    function clickCounter(){
     let countProducts = JSON.parse(localStorage.getItem("shoppingcart"))
@@ -97,7 +83,7 @@ function loadProducts (i) {
     }
 
 }
-    
+ /* total price */   
 function updateCartTotal(){
 let totalPrice = document.getElementById("totalPrice")
 let price = 0
@@ -109,12 +95,9 @@ for (let i = 0; i < currentShoppingcart.length; i++) {
     } else if(currentShoppingcart == 0){
         price = 0 
     }
-    totalPrice.innerHTML = "Totalt pris: " + price + " kr"
-
-    
+    totalPrice.innerHTML = "Totalt pris: " + price + " kr"   
+    }
 }
-}
-
 /* alert köp slutfört */
 function confirmOrder(){
     let recentOrders = JSON.parse(localStorage.getItem("receipt"))
@@ -143,22 +126,14 @@ function confirmOrder(){
     emptyCheckout()   
 }
 /* when empty write out "Din kundvagn är tom!" */
-function emptyCheckout(){
-    
+function emptyCheckout(){    
     let confirmButton = document.getElementById("confirmButton")
-    confirmButton.style.display = "none"
-    
-    let main = document.getElementById("main")
-    
+    confirmButton.style.display = "none"  
+    let main = document.getElementById("main")   
     let nothingInCart = document.createElement("div")
     nothingInCart.classList.add("nothingInCart")
     nothingInCart.innerHTML = "Din kundvagn är tom!"
     main.appendChild(nothingInCart)
-   /* collects receipt from local storage */
-    let receipt = localStorage.getItem("receipt")
-    JSON.parse(receipt)
-    /* console.log(receipt) */
-    
 }
 
 
