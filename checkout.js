@@ -117,13 +117,20 @@ for (let i = 0; i < currentShoppingcart.length; i++) {
 
 /* alert köp slutfört */
 function confirmOrder(){
+    let recentOrders = JSON.parse(localStorage.getItem("receipt"))
+    if(recentOrders == null){
+        recentOrders = []
+    }  
     for (let i = 0; i < currentShoppingcart.length; i++) {
+        let products = currentShoppingcart[i] 
+        recentOrders.push(products)
         /* saves receipt */
-        localStorage.setItem("receipt", JSON.stringify(currentShoppingcart))
-        /* empties cart with splice */
+        localStorage.setItem("receipt", JSON.stringify(recentOrders))       
+    }
+    /* empties cart with splice */
+    for (let i = 0; i < currentShoppingcart.length; i++) {
         currentShoppingcart.splice(i, currentShoppingcart.length)
-        localStorage.setItem("shoppingcart", JSON.stringify(currentShoppingcart))
-        
+        localStorage.setItem("shoppingcart", JSON.stringify(currentShoppingcart))   
     }
     /* empty checkout-page  */
     let main = document.getElementById("main")
@@ -133,9 +140,7 @@ function confirmOrder(){
     let counter = document.getElementById("productsInCart")
     counter.innerHTML = 0
     alert("Köp slutfört")
-    emptyCheckout()
-    /* location.replace("/index.html") */  /* ? */
-    
+    emptyCheckout()   
 }
 /* when empty write out "Din kundvagn är tom!" */
 function emptyCheckout(){
@@ -152,7 +157,7 @@ function emptyCheckout(){
    /* collects receipt from local storage */
     let receipt = localStorage.getItem("receipt")
     JSON.parse(receipt)
-    console.log(receipt)
+    /* console.log(receipt) */
     
 }
 
