@@ -25,8 +25,6 @@ function loadProducts (i) {
     titleDiv.classList.add("titleDiv")
     let phoneName=document.createElement("h1")
     phoneName.innerText=currentShoppingcart[i].title
-    /*let phoneInfo=document.createElement("h4")
-    phoneInfo.innerText=currentShoppingcart[i].description
     /* Create photo div */
     let photoDiv=document.createElement("div")
     let photo=document.createElement("img")
@@ -84,17 +82,17 @@ function loadProducts (i) {
 }
  /* total price */   
 function updateCartTotal(){
-let totalPrice = document.getElementById("totalPrice")
-let price = 0
-for (let i = 0; i < currentShoppingcart.length; i++) {
-    let productPrice = currentShoppingcart[i].price
-    if(currentShoppingcart !=null){
-        price += productPrice
+    let totalPrice = document.getElementById("totalPrice")
+    let price = 0
+    for (let i = 0; i < currentShoppingcart.length; i++) {
+        let productPrice = currentShoppingcart[i].price
+        if(currentShoppingcart !=null){
+            price += productPrice
 
-    } else if(currentShoppingcart == 0){
-        price = 0 
-    }
-    totalPrice.innerHTML = "Totalt pris: " + price + " kr"   
+        } else if(currentShoppingcart == 0){
+            price = 0 
+        }
+        totalPrice.innerHTML = "Totalt pris: " + price + " kr"   
     }
 }
 /* alert köp slutfört */

@@ -6,10 +6,8 @@ function login(){
     let inputUsername = document.getElementById("inputusername").value
     let inputPassword = document.getElementById("inputpassword").value
     let allAccounts = JSON.parse(localStorage.getItem("customers"))
-
     for (let i = 0; i < allAccounts.length; i++) {
-        const customer = allAccounts[i];
-        
+        const customer = allAccounts[i];        
         if(inputUsername == customer.username && inputPassword == customer.password){
             alert("you are logged in")
             let loggedin = {
@@ -19,14 +17,10 @@ function login(){
             localStorage.setItem("loggedin", JSON.stringify(loggedin))
             location.replace("/index.html")
             break
-        }
-        
-    }
-    
+        }       
+    }   
 }
-
 var listOfProducts;
-
 /** Get products from the json file and store it in a gobal variable */
 function loadProducts() {
     fetch("./products.json")
@@ -74,7 +68,6 @@ function addProductsToWebpage(i) {
     cartIcon.classList.add("fas")
     cartIcon.classList.add("fa-cart-arrow-down")
     /* Lägg till append child */
-/*     main.appendChild(mainContainer) */
     body.appendChild(mainContainer)
     mainContainer.appendChild(titleDiv)
     mainContainer.appendChild(photoDiv)
