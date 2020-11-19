@@ -19,5 +19,36 @@
         "description": "Super nice and beautiful smartphone from LG.",
         "image": "LGV30.png",
         "price": 7495
+    },{
+        "title": "Iphone 11",
+        "description": "Iphone 11 has an amazing camera with its two camera lenses",
+        "image": "iphone11.jpg",
+        "price": 8799
+    },{
+        "title": "Iphone 11 pro",
+        "description": "With Iphone 11 pro you get an amazing camera",
+        "image": "iphone11pro.jpg",
+        "price": 9899
+    },{
+        "title": "Iphone 11 Pro Max",
+        "description": "Iphone 11 Pro Max has an incredible long battery life",
+        "image": "iphone11promax.jpg", 
+        "price": 10199
+    },{
+        "title": "Iphone 12",
+        "description": "Discover Iphone 12 which is thinner and lighter than Iphone 11",
+        "image": "iphone12.jpg",
+        "price": 10499
+    },{
+        "title": "Iphone 12 pro",
+        "description": "With Iphone 11 has an amazing camera and an outstanding battery life",
+        "image": "iphone12pro.jpg",
+        "price": 11199
+    },{
+        "title": "Iphone 12 pro max",
+        "description": "Iphone 12 pro max comes with an incredible design, camera, storage and battery life",
+        "image": "iphone12promax.jpg",
+        "price": 11499
     }
+    
 ]
