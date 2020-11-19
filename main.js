@@ -167,7 +167,7 @@ function showOrderHistory(){
     console.log(history)
     for (let i = 0; i < history.length; i++) {
         const previousOrder = history[i];
-
+        
         let main = document.getElementById("main")
         main.style.textAlign = "center"
         main.style.margin = "200px auto"
