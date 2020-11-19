@@ -1,6 +1,5 @@
 var listOfProducts;
-
-/** Get products from the json file and store it in a gobal variable */
+/* Get products from the json file and store it in a gobal variable */
 function loadProducts() {
     fetch("./products.json")
     .then(function(response) {
@@ -17,7 +16,7 @@ function initSite() {
     clickCounter()
     checkIfLoggedIn()
 }
-/** Uses the loaded products data to create a visible product list on the website */
+/* Uses the loaded products data to create a visible product list on the website */
 function addProductsToWebpage(i) {
     let body=document.body
     /* Main container */
@@ -51,7 +50,6 @@ function addProductsToWebpage(i) {
     cartIcon.classList.add("fas")
     cartIcon.classList.add("fa-cart-arrow-down")
     /* Lägg till append child */
-/*     main.appendChild(mainContainer) */
     body.appendChild(mainContainer)
     mainContainer.appendChild(titleDiv)
     mainContainer.appendChild(photoDiv)
@@ -92,35 +90,25 @@ function addProductsToWebpage(i) {
             productsInCart.innerHTML = clicks
         }
     }
-
-
-
+    /* write out "inloggad som..." */
 function checkIfLoggedIn(){
     let loggedin = JSON.parse(localStorage.getItem("loggedin"))
-    console.log("hej")
     if(loggedin != null){
-        let navDiv = document.getElementById("nav-icon")
-        
+        let navDiv = document.getElementById("nav-icon")      
         let mainDiv = document.getElementById("wrapperIcon")
-
         let linkLogin = document.getElementById("linklogin")
         linkLogin.style.display = "none"
-
         let loggedInUser = document.createElement("h4")
         loggedInUser.classList.add("username")
         loggedInUser.innerText = "Inloggad som " + loggedin.username
         loggedInUser.style.margin = "10px"
-
         let orderHistory = document.createElement("button")
         orderHistory.innerText = "Recent orders"
         orderHistory.style.border = "none"
         orderHistory.style.backgroundColor = "#212121"
         orderHistory.style.color = "#FFFFFF"
         orderHistory.style.cursor = "pointer"
-
         orderHistory.addEventListener("click", showOrderHistory)
-
-
         let logoutBtn = document.createElement("button")
         logoutBtn.innerText = "LogOut"
         logoutBtn.style.marginRight = "5px"
@@ -128,46 +116,31 @@ function checkIfLoggedIn(){
         logoutBtn.style.color = "#FFFFFF"
         logoutBtn.style.border = "1px solid #FFFFFF"
         logoutBtn.style.cursor = "pointer"
-
         logoutBtn.addEventListener("click", ()=>{
             localStorage.removeItem("loggedin")
             location.replace("/index.html")
         })
-
         mainDiv.appendChild(logoutBtn)
-        navDiv.append(loggedInUser, orderHistory)
-        
-    }
-    
+        navDiv.append(loggedInUser, orderHistory)       
+    }   
 }
-
-
 /* Skriv ut orderhistorik i main */
 function showOrderHistory(){
-    console.log("rätt funktion")
     let products = document.getElementsByClassName("mainContainer")
     for (let i = 0; i < products.length; i++) {
-        products[i].style.display = "none"
-        
+        products[i].style.display = "none"       
     }
-
     let history = JSON.parse(localStorage.getItem("receipt"))
     if(history == null){
         let main = document.getElementById("main")
-        main.style.textAlign = "center"
-        
+        main.style.textAlign = "center"      
         let noRecentOrders = document.createElement("h3")
         noRecentOrders.innerText = "du har inga tidigare ordrar!"
         noRecentOrders.style.margin = "400px auto"
-        
-
         main.appendChild(noRecentOrders)
     }
-    /* products.style.display = "none" */
-    console.log(history)
     for (let i = 0; i < history.length; i++) {
-        const previousOrder = history[i];
-        
+        const previousOrder = history[i];      
         let main = document.getElementById("main")
         main.style.textAlign = "center"
         main.style.margin = "200px auto"
@@ -176,8 +149,6 @@ function showOrderHistory(){
         main.style.flexDirection = "column"
         main.style.justifyContent = "center"
         main.style.alignItems = "center"
-       
-
         let mainContainer = document.createElement("div")
         mainContainer.style.width = "50%"
         mainContainer.style.display = "flex"
@@ -186,26 +157,15 @@ function showOrderHistory(){
         mainContainer.style.alignItems = "center"
         mainContainer.style.border = "1px solid black"
         mainContainer.style.border = "1px solid black"
-
         let shoppingDate = document.createElement("h2")
         shoppingDate.innerText = "Kvitto:"
-
         let productName = document.createElement("h3")
         productName.innerText = previousOrder.title
-
         let price = document.createElement("h4")
         price.innerText = previousOrder.price
-
         main.appendChild(mainContainer)
-        mainContainer.append(shoppingDate, productName, price)
-
-        
+        mainContainer.append(shoppingDate, productName, price)        
     }
 }
 
 
-    // Add your code here, remember to brake your code in to smaller function blocks
-    // to reduce complexity and increase readability. Each function should have
-    // an explainetory comment like the one for this function, see row 22.
-    
-    // TODO: Remove the console.log and these comments when you've read them.

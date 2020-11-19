@@ -1,5 +1,4 @@
-
-/* skapar konto */
+/* create account */
 let loginBtn = document.getElementById("loginBtn")
 loginBtn.addEventListener("click", createAccount)
 function createAccount(){
@@ -18,16 +17,10 @@ function createAccount(){
     alert("you succesfully created an account")
     location.replace("/login.html")
 }
-
 function initSite(){
     loadProducts()
 }
-
-
-
-
 var listOfProducts;
-
 /** Get products from the json file and store it in a gobal variable */
 function loadProducts() {
     fetch("./products.json")
@@ -39,7 +32,6 @@ function loadProducts() {
         for(var i = 0; i <listOfProducts.length;i++) {addProductsToWebpage(i)}
     });
 }
-
 function addProductsToWebpage(i) {
     let body=document.body
     /* Main container */
@@ -73,7 +65,6 @@ function addProductsToWebpage(i) {
     cartIcon.classList.add("fas")
     cartIcon.classList.add("fa-cart-arrow-down")
     /* Lägg till append child */
-/*     main.appendChild(mainContainer) */
     body.appendChild(mainContainer)
     mainContainer.appendChild(titleDiv)
     mainContainer.appendChild(photoDiv)
