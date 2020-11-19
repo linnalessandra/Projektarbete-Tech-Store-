@@ -81,7 +81,6 @@ function loadProducts (i) {
     } else if(countProducts == 0){
         productsInCart.innerHTML = clicks
     }
-
 }
  /* total price */   
 function updateCartTotal(){
